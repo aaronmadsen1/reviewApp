@@ -4,6 +4,8 @@ import * as Font from "expo-font"
 import { AppLoading } from "expo"
 
 import Home from "./screens/home"
+import About from "./screens/about"
+import ReviewDetails from "./screens/reviewDetails"
 
 const getFonts = () =>
   Font.loadAsync({
