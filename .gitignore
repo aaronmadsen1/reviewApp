@@ -10,8 +10,7 @@ npm-debug.*
 web-build/
 web-report/
 links.js
-package-lock.json
-package.json
+
 
 # macOS
 .DS_Store
