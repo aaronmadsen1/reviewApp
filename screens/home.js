@@ -3,13 +3,18 @@ import {
   StyleSheet,
   View,
   Text,
-  Button,
   FlatList,
-  TouchableOpacity
+  TouchableOpacity,
+  Modal
 } from "react-native"
 import { globalStyles } from "../styles/global"
+import Card from "../shared/card"
+import { MaterialIcons } from "@expo/vector-icons"
+import ReviewForm from "./reviewForm"
 
 export default function Home({ navigation }) {
+  const [modalOpen, setModalOpen] = useState(false)
+
   const [reviews, setReviews] = useState([
     {
       title: "Zelda, Breath of Fresh Air",
@@ -33,13 +38,34 @@ export default function Home({ navigation }) {
 
   return (
     <View style={globalStyles.container}>
+      <Modal visible={modalOpen} animationType="slide">
+        <View style={styles.modalContent}>
+          <MaterialIcons
+            name="close"
+            size={24}
+            style={{ ...styles.modalToggle, ...styles.modalClose }}
+            onPress={() => setModalOpen(false)}
+          />
+          <ReviewForm />
+        </View>
+      </Modal>
+
+      <MaterialIcons
+        name="add"
+        size={24}
+        style={styles.modalToggle}
+        onPress={() => setModalOpen(true)}
+      />
+
       <FlatList
         data={reviews}
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => navigation.navigate("ReviewDetails", item)}
           >
-            <Text style={globalStyles.titleText}>{item.title}</Text>
+            <Card>
+              <Text style={globalStyles.titleText}>{item.title}</Text>
+            </Card>
           </TouchableOpacity>
         )}
       />
@@ -47,11 +73,19 @@ export default function Home({ navigation }) {
   )
 }
 
-// not being used #21
-// const pressHandler = () => {
-//   navigation.navigate("ReviewDetails")
-//   // navigation.push("ReviewDetails")  //does same as above, but more granular and explicit
-// }
-{
-  /* <Button title="go to review details" onPress={pressHandler} /> */
-}
+const styles = StyleSheet.create({
+  modalToggle: {
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: "lightgray",
+    padding: 10,
+    borderRadius: 10,
+    alignSelf: "center"
+  },
+  modalClose: {
+    marginTop: 20
+  },
+  modalContent: {
+    flex: 1
+  }
+})
