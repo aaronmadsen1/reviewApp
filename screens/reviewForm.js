@@ -3,6 +3,7 @@ import { StyleSheet, Button, TextInput, View, Text } from "react-native"
 import { globalStyles } from "../styles/global"
 import { Formik } from "formik"
 import * as yup from "yup"
+import FlatButton from "../shared/button"
 
 const reviewSchema = yup.object({
   title: yup
@@ -43,7 +44,7 @@ export default function ReviewForm({ addReview }) {
               placeholder="Review Title"
               onChangeText={props.handleChange("title")}
               value={props.values.title}
-              onBlur={props.handleBlur("title")}
+              onBlur={props.handleBlur("title")} // doesnt seem to work as expected
             />
 
             <Text style={globalStyles.errorText}>
@@ -52,6 +53,7 @@ export default function ReviewForm({ addReview }) {
 
             <TextInput
               multiline
+              minHeight={60}
               style={globalStyles.input}
               placeholder="Review Body"
               onChangeText={props.handleChange("body")}
@@ -76,11 +78,7 @@ export default function ReviewForm({ addReview }) {
               {props.touched.rating && props.errors.rating}
             </Text>
 
-            <Button
-              title="Submit"
-              color="maroon"
-              onPress={props.handleSubmit}
-            />
+            <FlatButton text="submit" onPress={props.handleSubmit} />
           </View>
         )}
       </Formik>

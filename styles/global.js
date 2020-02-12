@@ -57,7 +57,7 @@ export const globalStyles = StyleSheet.create({
     // works on ios, not android simulator
     color: "crimson",
     fontWeight: "bold",
-    margin: 100,
+    margin: 10,
     marginTop: 6,
     textAlign: "center"
   }
