@@ -52,6 +52,14 @@ export const globalStyles = StyleSheet.create({
     padding: 10,
     fontSize: 18,
     borderRadius: 6
+  },
+  errorText: {
+    // works on ios, not android simulator
+    color: "crimson",
+    fontWeight: "bold",
+    margin: 100,
+    marginTop: 6,
+    textAlign: "center"
   }
 })
 
