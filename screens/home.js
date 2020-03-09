@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 import {
   StyleSheet,
   View,
@@ -8,33 +8,33 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Modal
-} from "react-native"
-import { globalStyles } from "../styles/global"
-import Card from "../shared/card"
-import { MaterialIcons } from "@expo/vector-icons"
-import ReviewForm from "./reviewForm"
+} from 'react-native'
+import { globalStyles } from '../styles/global'
+import Card from '../shared/card'
+import { MaterialIcons } from '@expo/vector-icons'
+import ReviewForm from './reviewForm'
 
 export default function Home({ navigation }) {
   const [modalOpen, setModalOpen] = useState(false)
 
   const [reviews, setReviews] = useState([
     {
-      title: "Zelda, Breath of Fresh Air",
+      title: 'Zelda, Breath of Fresh Air',
       rating: 4,
-      body: "Review for the 2nd title",
-      key: "2"
+      body: 'Review for the 2nd title',
+      key: '2'
     },
     {
-      title: "Gota Catch Them All",
+      title: 'Gota Catch Them All',
       rating: 5,
-      body: "Review for the 1st title",
-      key: "1"
+      body: 'Review for the 1st title',
+      key: '1'
     },
     {
       title: 'Not so "Final" Fantasy',
       rating: 3,
-      body: "Review for the 3rd title",
-      key: "3"
+      body: 'Review for the 3rd title',
+      key: '3'
     }
   ])
 
@@ -73,7 +73,7 @@ export default function Home({ navigation }) {
         data={reviews}
         renderItem={({ item }) => (
           <TouchableOpacity
-            onPress={() => navigation.navigate("ReviewDetails", item)}
+            onPress={() => navigation.navigate('ReviewDetails', item)}
           >
             <Card>
               <Text style={globalStyles.titleText}>{item.title}</Text>
@@ -85,17 +85,37 @@ export default function Home({ navigation }) {
   )
 }
 
+// const styles = StyleSheet.create({
+//   modalToggle: {
+//     marginBottom: 10,
+//     borderWidth: 1,
+//     borderColor: "lightgray",
+//     padding: 10,
+//     borderRadius: 10,
+//     alignSelf: "center"
+//   },
+//   modalClose: {
+//     marginTop: 20
+//   },
+//   modalContent: {
+//     flex: 1
+//   }
+// })
+
 const styles = StyleSheet.create({
   modalToggle: {
+    justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 10,
     borderWidth: 1,
-    borderColor: "lightgray",
+    borderColor: '#f2f2f2',
     padding: 10,
     borderRadius: 10,
-    alignSelf: "center"
+    alignSelf: 'center'
   },
   modalClose: {
-    marginTop: 20
+    marginTop: 20,
+    marginBottom: 0
   },
   modalContent: {
     flex: 1

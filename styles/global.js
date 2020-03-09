@@ -40,20 +40,6 @@ export const globalStyles = StyleSheet.create({
     borderRadius: 6
   },
   errorText: {
-    color: "crimson",
-    fontWeight: "bold",
-    marginBottom: 10,
-    marginTop: 6,
-    textAlign: "center"
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: "#ddd",
-    padding: 10,
-    fontSize: 18,
-    borderRadius: 6
-  },
-  errorText: {
     // works on ios, not android simulator
     color: "crimson",
     fontWeight: "bold",
